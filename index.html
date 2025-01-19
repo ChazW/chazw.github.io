@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chester Wang - Business Analytics Professional with experience in healthcare technology and data analysis">
     <title>Chester Wang - Business Analytics Professional</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
+        /* Base Variables */
         :root {
             --primary-color: #2563eb;
             --text-color: #1f2937;
@@ -12,10 +15,25 @@
             --secondary-bg: #f3f4f6;
         }
 
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #3b82f6;
+                --text-color: #e5e7eb;
+                --bg-color: #111827;
+                --secondary-bg: #1f2937;
+            }
+        }
+
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -25,12 +43,14 @@
             background-color: var(--bg-color);
         }
 
+        /* Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
+        /* Header Styles */
         header {
             text-align: center;
             padding: 3rem 0;
@@ -50,6 +70,7 @@
             margin-bottom: 1rem;
         }
 
+        /* Contact Info */
         .contact-info {
             margin: 1rem 0;
         }
@@ -64,6 +85,12 @@
             text-decoration: underline;
         }
 
+        .contact-info a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Navigation */
         .main-nav {
             margin-top: 1.5rem;
             padding: 0.5rem;
@@ -86,6 +113,12 @@
             color: white;
         }
 
+        .nav-link:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Section Styles */
         section {
             margin-bottom: 3rem;
         }
@@ -97,11 +130,14 @@
             border-bottom: 2px solid var(--secondary-bg);
         }
 
-        .experience-item {
+        /* Experience & Education Items */
+        .experience-item,
+        .education-item {
             margin-bottom: 2rem;
         }
 
-        .experience-header {
+        .experience-header,
+        .education-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -109,18 +145,21 @@
             margin-bottom: 1rem;
         }
 
-        .experience-title {
+        .experience-title,
+        .education-title {
             font-weight: bold;
             color: var(--primary-color);
             font-size: 1.1rem;
         }
 
-        .experience-company {
+        .experience-company,
+        .education-school {
             color: #4b5563;
             font-weight: 500;
         }
 
-        .experience-date {
+        .experience-date,
+        .education-date {
             color: #6b7280;
             font-size: 0.9rem;
         }
@@ -130,34 +169,7 @@
             font-size: 0.9rem;
         }
 
-        .education-item {
-            margin-bottom: 2rem;
-        }
-
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .education-title {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        .education-school {
-            color: #4b5563;
-            font-weight: 500;
-        }
-
-        .education-date {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
+        /* Lists */
         ul {
             list-style-position: inside;
             padding-left: 1rem;
@@ -167,6 +179,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -178,6 +191,11 @@
             background-color: var(--secondary-bg);
             padding: 1.5rem;
             border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
         }
 
         .skill-category h3 {
@@ -186,6 +204,7 @@
             font-size: 1.1rem;
         }
 
+        /* Language Items */
         .language-item {
             display: flex;
             justify-content: space-between;
@@ -195,11 +214,35 @@
             border-radius: 6px;
         }
 
-        .content-section {
-            margin-left: 20px;
-            margin-right: 20px;
+        /* Back to Top Button */
+        .back-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 1000;
+            transition: background-color 0.2s;
         }
 
+        .back-to-top-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .back-to-top-btn.visible {
+            display: flex;
+        }
+
+        /* Media Queries */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -209,7 +252,8 @@
                 font-size: 2rem;
             }
 
-            .experience-header {
+            .experience-header,
+            .education-header {
                 flex-direction: column;
                 gap: 0.5rem;
             }
@@ -217,10 +261,41 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .content-section {
-                margin-left: 20px;
-                margin-right: 20px;
+        /* Print Styles */
+        @media print {
+            .main-nav,
+            .back-to-top-btn {
+                display: none;
+            }
+            
+            body {
+                color: black;
+            }
+            
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            
+            header {
+                background-color: white;
+                padding: 1rem 0;
+            }
+            
+            .container {
+                padding: 0;
+            }
+            
+            .skill-category {
+                break-inside: avoid;
+                background-color: white;
+                border: 1px solid #ddd;
+            }
+
+            @page {
+                margin: 1cm;
             }
         }
     </style>
@@ -231,27 +306,45 @@
         <div class="title">Master of Business Analytics</div>
         <div class="contact-info">
             <a href="mailto:chesterwang94@gmail.com">chesterwang94@gmail.com</a> |
-            <a href="https://linkedin.com/in/chester-wang-mban" target="_blank">LinkedIn</a> |
+            <a href="https://linkedin.com/in/chester-wang-mban" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
             <span>Halifax, Nova Scotia, Canada</span>
         </div>
-        <nav class="main-nav">
+        <nav class="main-nav" aria-label="Main navigation">
             <a href="index.html" class="nav-link">Resume</a>
             <a href="projects.html" class="nav-link">Academic Projects</a>
         </nav>
     </header>
 
-    <div class="container">
-        <section id="summary" class="content-section">
+    <main class="container">
+        <section id="summary">
             <h2>Professional Summary</h2>
             <p>Business Analyst with over 8 months of experience at Nova Scotia Health, specializing in clinical workflow optimization, system configuration, and supporting healthcare technology solutions. Proficient in tools like Sparx Enterprise Architect, Oracle Health Workflow Designer, and Smartsheet for managing and streamlining clinical workflows. Skilled in troubleshooting, stakeholder collaboration, and data management to ensure alignment with organizational goals. Currently pursuing a master's in business Analytics to deepen expertise in data-driven decision-making.</p>
         </section>
 
-        <section id="experience" class="content-section">
+        <section id="experience">
             <h2>Professional Experience</h2>
-            <!-- ...existing code... -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Business Analyst</div>
+                        <div class="experience-company">Nova Scotia Health</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="experience-date">May 2023 - Present</div>
+                        <div class="experience-location">Halifax, NS</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Analyze and document clinical workflows using Sparx Enterprise Architect and Oracle Health Workflow Designer</li>
+                    <li>Collaborate with stakeholders to gather requirements and optimize healthcare processes</li>
+                    <li>Support system configuration and troubleshooting for healthcare technology solutions</li>
+                    <li>Manage project timelines and deliverables using Smartsheet and SharePoint</li>
+                </ul>
+            </div>
+            <!-- Add more experience items as needed -->
         </section>
 
-        <section id="education" class="content-section">
+        <section id="education">
             <h2>Education</h2>
             <div class="education-item">
                 <div class="education-header">
@@ -278,7 +371,7 @@
             </div>
         </section>
 
-        <section id="skills" class="content-section">
+        <section id="skills">
             <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -300,7 +393,7 @@
             </div>
         </section>
 
-        <section id="languages" class="content-section">
+        <section id="languages">
             <h2>Languages</h2>
             <div class="language-item">
                 <span>Chinese</span>
@@ -312,7 +405,7 @@
             </div>
         </section>
 
-        <section id="awards" class="content-section">
+        <section id="awards">
             <h2>Awards & Volunteer Work</h2>
             <div class="experience-item">
                 <div class="experience-header">
@@ -329,6 +422,24 @@
                 <p>Community Volunteer</p>
             </div>
         </section>
-    </div>
+    </main>
+
+    <button id="back-to-top" aria-label="Back to top" class="back-to-top-btn">↑</button>
+
+    <script>
+        // Back to top button functionality
+        window.onscroll = function() {
+            const btn = document.getElementById('back-to-top');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        };
+
+        document.getElementById('back-to-top').onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+    </script>
 </body>
 </html>
