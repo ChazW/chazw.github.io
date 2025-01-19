@@ -91,7 +91,28 @@
             display: inline-flex;
             gap: 1rem;
         }
+        .navigation {
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--secondary-bg);
+}
 
+.nav-link {
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: var(--secondary-bg);
+}
+
+.nav-link:first-child {
+    margin-left: 0;
+}
         .nav-link {
             color: var(--primary-color);
             text-decoration: none;
@@ -302,6 +323,10 @@
             <a href="https://chazw.github.io" target="_blank" rel="noopener noreferrer">Website</a> |
             <span>Halifax, Nova Scotia, Canada</span>
         </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">Resume</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+        </nav>
     </header>
 
     <main class="container">
